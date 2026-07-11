@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Pixel Arena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleaccount.css">
+    <link rel="stylesheet" href="styleindex.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <h2 class="logo">🎮 Pixel<span>Arena</span></h2>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="account.html" class="profile-link">
+                <img src="https://i.pinimg.com/736x/ce/ec/3d/ceec3ddfd13c0cd9374e499fbaa2119f.jpg" class="profile-pic" alt="Profile">
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main class="container profile-section">
+    <div class="section-title">
+        <h2>Player Profile</h2>
+        <div class="neon-line"></div>
+    </div>
+
+    <div class="profile-grid">
+        <div class="profile-card-left">
+            <div class="avatar-container">
+                <div class="avatar-glow">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <span class="user-status-badge"><span class="status-dot"></span> Online</span>
+            </div>
+      
+            <h3 id="profileUserHeader">Loading...</h3>
+            <p class="user-tier-text"><i class="fa-solid fa-crown"></i> Gold Tier Member</p>
+            
+            <div class="profile-actions">
+                <button id="logoutBtn" class="btn btn-purple btn-block">
+                    <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                </button>
+            </div>
+        </div>
+
+        <div class="profile-details-right">
+            <div class="detail-card" id="reservationCard" style="display: none; border-color: #00f3ff; box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);">
+                <h3><i class="fa-solid fa-calendar-check text-neon-cyan"></i> Active Reservation</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Date:</span>
+                    <span id="resDate" class="detail-value">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Stations:</span>
+                    <span id="resStations" class="detail-value text-neon-cyan">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Duration:</span>
+                    <span id="resHours" class="detail-value">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Amount Paid:</span>
+                    <span id="resTotal" class="detail-value text-neon-purple">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value" style="color: #00ff66; text-shadow: 0 0 8px #00ff66;">Confirmed</span>
+                </div>
+                <button id="cancelResBtn" class="btn btn-purple btn-block" style="margin-top: 1.5rem; width: 100%; background-color: rgba(255, 77, 109, 0.1); border: 2px solid #ff4d6d; color: #ff4d6d; font-family: 'Orbitron', sans-serif; font-weight: 700;">
+                    <i class="fa-solid fa-xmark"></i> Cancel Reservation
+                </button>
+            </div>
+
+            <div class="detail-card">
+                <h3><i class="fa-solid fa-address-card text-neon-cyan"></i> Account Credentials</h3>
+                <div class="detail-row">
+                    <span id="contactLabel" class="detail-label">Registered Contact:</span>
+                    <span id="profileEmail" class="detail-value">Loading...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Membership Type:</span>
+                    <span class="detail-value text-neon-purple">Student Account</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Date Joined:</span>
+                    <span class="detail-value">July 2026</span>
+                </div>
+            </div>
+
+            <div class="detail-card rewards-card">
+                <div class="rewards-header">
+                    <h3><i class="fa-solid fa-award text-neon-purple"></i> Reward Points</h3>
+                    <span class="points-badge" id="pointsEarned">350 Pts</span>
+                </div>
+                <p class="rewards-desc">Earn 10 points for every hour played. Redeem points for free gaming sessions and snacks.</p>
+                
+                <div class="points-progress">
+                    <div class="progress-info">
+                        <span>Progress to Free 2-Hour Pass</span>
+                        <span>350 / 500 Pts</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-card">
+                <h3><i class="fa-solid fa-gamepad text-neon-cyan"></i> Recent Session</h3>
+                <div class="detail-row">
+                    <span class="detail-label">Last Played Station:</span>
+                    <span class="detail-value">PC-14 (Premium Zone)</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Time Logged:</span>
+                    <span class="detail-value">3 Hours & 45 Mins</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Favorite Played Game:</span>
+                    <span class="detail-value text-neon-cyan">Valorant</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>© 2026 Pixel Arena Gaming Café | Made for School Project</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const storedAccount = JSON.parse(localStorage.getItem('userAccount'));
+    const profileEmail = document.getElementById('profileEmail');
+    const profileUserHeader = document.getElementById('profileUserHeader');
+    const contactLabel = document.getElementById('contactLabel');
+    const pointsEarned = document.getElementById('pointsEarned');
+
+    if (storedAccount) {
+        profileUserHeader.textContent = storedAccount.username;
+        profileEmail.textContent = storedAccount.contactValue;
+        
+        if (storedAccount.regType === 'phone') {
+            contactLabel.textContent = "Registered Mobile:";
+        } else {
+            contactLabel.textContent = "Registered Email:";
+        }
+        pointsEarned.textContent = "350 Pts";
+    } else {
+        profileUserHeader.textContent = "student";
+        profileEmail.textContent = "student@arena.com";
+        contactLabel.textContent = "Registered Email:";
+        pointsEarned.textContent = "150 Pts";
+    }
+
+    const reservationCard = document.getElementById('reservationCard');
+    const resDate = document.getElementById('resDate');
+    const resStations = document.getElementById('resStations');
+    const resHours = document.getElementById('resHours');
+    const resTotal = document.getElementById('resTotal');
+    const activeRes = JSON.parse(localStorage.getItem('activeReservation'));
+
+    if (activeRes) {
+        reservationCard.style.display = 'block';
+        resDate.textContent = activeRes.date;
+        resStations.textContent = activeRes.stations;
+        resHours.textContent = activeRes.hours + (Number(activeRes.hours) > 1 ? " Hours" : " Hour");
+        resTotal.textContent = activeRes.total;
+    } else {
+        reservationCard.style.display = 'none';
+    }
+    const cancelResBtn = document.getElementById('cancelResBtn');
+    if (cancelResBtn) {
+        cancelResBtn.addEventListener('click', function() {
+            if (confirm("Are you sure you want to cancel your current booking reservation?")) {
+                localStorage.removeItem('activeReservation');
+                alert("Your reservation has been cancelled.");
+                location.reload(); 
+            }
+        });
+    }
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+        localStorage.removeItem('isLoggedIn');
+        alert("Logging out from Pixel Arena. See you next game!");
+        window.location.href = 'signin.html';
+    });
+});
+</script>
+
+</body>
+</html>

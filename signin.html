@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Pixel Arena</title>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleindex.css">
+    <link rel="stylesheet" href="stylesignin.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar container">
+        <h2 class="logo">🎮 Pixel<span>Arena</span></h2>
+        <ul class="nav-links">
+    
+        </ul>
+    </nav>
+</header>
+
+<div class="container auth-wrapper">
+    <div class="auth-card">
+        <h2>Sign In</h2>
+        <p class="auth-subtitle">Log in to secure your PC booking</p>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginUser">Email or Phone Number</label>
+                <input type="text" id="loginUser" class="form-input" placeholder="Enter your registered details" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn btn-purple btn-block">Log In</button>
+        </form>
+
+        <p class="auth-switch">Don't have an account yet? <a href="signup.html">Register here</a></p>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>© 2026 Pixel Arena Gaming Café </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const userVal = document.getElementById('loginUser').value.trim();
+    const passVal = document.getElementById('loginPassword').value;
+
+    const storedAccount = JSON.parse(localStorage.getItem('userAccount'));
+
+    const defaultContact = 'student@arena.com';
+    const defaultPass = 'password123';
+    const defaultUser = 'student';
+
+    if (storedAccount && userVal === storedAccount.contactValue && passVal === storedAccount.password) {
+        alert("Login successful! Welcome back, " + storedAccount.username + ".");
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+    } else if (userVal === defaultContact && passVal === defaultPass) {
+    
+        const demoAccount = {
+            username: defaultUser,
+            regType: 'email',
+            contactValue: defaultContact,
+            password: defaultPass
+        };
+        localStorage.setItem('userAccount', JSON.stringify(demoAccount));
+        alert("Login successful using standard student account!");
+        localStorage.setItem('isLoggedIn', 'true');
+        window.location.href = 'index.html';
+    } else {
+        alert("Incorrect credentials! Please verify your information.");
+    }
+});
+</script>
+
+</body>
+</html>

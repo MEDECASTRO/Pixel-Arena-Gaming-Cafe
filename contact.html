@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Report - Pixel Arena</title>
+       <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleindex.css">
+
+    <link rel="stylesheet" href="stylecontact.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <h2 class="logo">🎮 Pixel<span>Arena</span></h2>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="account.html" class="profile-link">
+                <img src="https://i.pinimg.com/736x/ce/ec/3d/ceec3ddfd13c0cd9374e499fbaa2119f.jpg" class="profile-pic" alt="Profile">
+            </a>
+        </div>
+    </nav>
+</header>
+
+<main class="container contact-section">
+    <div class="section-title">
+        <h2>Get in Touch & Report</h2>
+        <p class="contact-lead">Need to ask something or report an issue? Use the form below and our staff will handle it.</p>
+        <div class="neon-line"></div>
+    </div>
+
+    <div class="contact-grid">
+   
+        <div class="contact-info">
+            <div class="info-card">
+                <h3><i class="fa-solid fa-circle-info"></i> Café Information</h3>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                        <h4>Mobile Number</h4>
+                        <p>0912-345-6789</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div>
+                        <h4>Operating Hours</h4>
+                        <p>Open 24/7 (Always Open)</p>
+                    </div>
+                </div>
+            </div>
+
+      
+            <div class="address-details-card">
+                <h3><i class="fa-solid fa-location-dot"></i> Full Address</h3>
+                <p class="main-address">123 Neon Boulevard, Sampaloc, Manila, 1008, Philippines</p>
+                <div class="landmark-box">
+                    <h5><i class="fa-solid fa-compass"></i> Landmarks & Directions:</h5>
+                    <ul>
+                        <li>Located on the 2nd Floor of the Cyber Hub Building</li>
+                        <li>Directly across the street from the University Plaza</li>
+                        <li>Just a 2-minute walk from the MRT-3 Station exit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="contact-form-wrapper">
+            <form id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contactName">Full Name</label>
+                        <input type="text" id="contactName" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Email or Contact Number</label>
+                        <input type="text" id="contactEmail" class="form-input" placeholder="e.g. 09123456789" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactReason">Reason for Contact</label>
+                    <select id="contactReason" class="form-input select-input" required>
+                        <option value="" disabled selected>Choose a purpose...</option>
+                        <option value="inquiry">General Inquiry</option>
+                        <option value="reservation">PC Booking / Reservation Questions</option>
+                        <option value="report-pc">⚠️ Report PC or Hardware Issue (e.g. broken mouse, slow PC)</option>
+                        <option value="report-player">🚫 Report Bad Player / Toxic Behavior</option>
+                        <option value="feedback">Feedback or Suggestion</option>
+                    </select>
+                </div>
+
+          
+                <div class="form-group" id="pcNumberField" style="display: none;">
+                    <label for="pcNumber">PC / Seat Number <span class="purple-accent">(If applicable)</span></label>
+                    <input type="text" id="pcNumber" class="form-input" placeholder="e.g. PC-04 or VIP-01">
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMessage">Message / Report Details</label>
+                    <textarea id="contactMessage" class="form-input textarea-input" rows="5" placeholder="Tell us more details here..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-cyan btn-block">Submit Ticket</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+<div id="ticketModal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3><i class="fa-solid fa-ticket"></i> Ticket Generated</h3>
+            <button id="closeModalBtn" class="close-btn">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+            <p class="modal-intro">Your details have been successfully transmitted to the on-duty administrators.</p>
+          
+            <div class="ticket-slip">
+                <div class="ticket-row">
+                    <span class="ticket-label">TICKET ID</span>
+                    <span id="ticketIdVal" class="ticket-value text-neon-cyan">PA-000000</span>
+                </div>
+                <div class="ticket-row">
+                    <span class="ticket-label">SUBMITTED BY</span>
+                    <span id="ticketNameVal" class="ticket-value">N/A</span>
+                </div>
+                <div class="ticket-row" id="ticketPcRow" style="display: none;">
+                    <span class="ticket-label">PC / SEAT</span>
+                    <span id="ticketPcVal" class="ticket-value">N/A</span>
+                </div>
+            </div>
+            
+            <p id="ticketDetailsMsg" class="modal-status-text">We have received your message and will review it shortly.</p>
+        </div>
+        
+        <div class="modal-footer">
+            <button id="modalConfirmBtn" class="btn btn-purple btn-block">Got It</button>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h3>🎮 Pixel Arena</h3>
+                <p>Your local gaming hub for casual play and tournaments.</p>
+            </div>
+            <div class="footer-box">
+                <h4>Location & Hours</h4>
+                <p><i class="fa-solid fa-map-marker-alt"></i> Sampaloc, Manila, Philippines</p>
+                <p><i class="fa-solid fa-clock"></i> Open 24/7</p>
+            </div>
+            <div class="footer-box">
+                <h4>Contact & Socials</h4>
+                <p><i class="fa-solid fa-phone"></i> 0912-345-6789</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Pixel Arena Gaming Café | Made for School Project</p>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+const reasonSelect = document.getElementById('contactReason');
+const pcNumberField = document.getElementById('pcNumberField');
+
+
+const ticketModal = document.getElementById('ticketModal');
+const ticketIdVal = document.getElementById('ticketIdVal');
+const ticketNameVal = document.getElementById('ticketNameVal');
+const ticketPcRow = document.getElementById('ticketPcRow');
+const ticketPcVal = document.getElementById('ticketPcVal');
+const ticketDetailsMsg = document.getElementById('ticketDetailsMsg');
+
+
+reasonSelect.addEventListener('change', function() {
+    if (this.value === 'report-pc' || this.value === 'report-player') {
+        pcNumberField.style.display = 'block';
+    } else {
+        pcNumberField.style.display = 'none';
+        document.getElementById('pcNumber').value = '';
+    }
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('contactName').value.trim();
+    const reasonValue = reasonSelect.value;
+    const pcNum = document.getElementById('pcNumber').value.trim();
+    
+
+    const generatedId = 'PA-' + Math.floor(100000 + Math.random() * 900000);
+    
+    ticketIdVal.textContent = generatedId;
+    ticketNameVal.textContent = name;
+    
+    if (reasonValue === 'report-pc' || reasonValue === 'report-player') {
+        ticketPcRow.style.display = 'flex';
+        ticketPcVal.textContent = pcNum || 'Not Specified';
+        ticketDetailsMsg.textContent = "Your PC/behavior report has been received. On-floor cafe staff have been notified to inspect your station.";
+    } else {
+        ticketPcRow.style.display = 'none';
+        ticketDetailsMsg.textContent = "Your inquiry has been successfully queued. One of our support representatives will contact you shortly.";
+    }
+    
+    ticketModal.classList.add('active');
+});
+
+function closeModal() {
+    ticketModal.classList.remove('active');
+    document.getElementById('contactForm').reset();
+    pcNumberField.style.display = 'none';
+}
+
+document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+document.getElementById('modalConfirmBtn').addEventListener('click', closeModal);
+</script>
+
+</body>
+</html>

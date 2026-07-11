@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Pixel Arena Gaming Café</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleindex.css">
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <h2 class="logo">🎮 Pixel<span>Arena</span></h2>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="account.html" class="profile-link">
+                <img src="https://i.pinimg.com/736x/ce/ec/3d/ceec3ddfd13c0cd9374e499fbaa2119f.jpg" class="profile-pic" alt="Profile">
+            </a>
+        </div>
+    </nav>
+</header>
+
+<section class="section booking-section">
+    <div class="section-title">
+        <h2>Book Your <span class="neon-cyan">Station</span></h2>
+        <div class="neon-line"></div>
+        <p class="booking-subtext">Pick a date, choose how many hours, then tap your stations below.</p>
+    </div>
+
+    <div class="booking-controls">
+        <div class="control-group">
+            <label for="bookingDate"><i class="fa-solid fa-calendar-days"></i> Date</label>
+            <input type="date" id="bookingDate">
+        </div>
+        <div class="control-group">
+            <label for="bookingHours"><i class="fa-solid fa-clock"></i> Hours</label>
+            <select id="bookingHours">
+                <option value="1">1 hour</option>
+                <option value="2">2 hours</option>
+                <option value="3">3 hours</option>
+                <option value="4">4 hours</option>
+                <option value="5">5 hours</option>
+                <option value="6">6 hours</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><span class="swatch selected-swatch"></span> Your Pick</div>
+        <div class="legend-item"><span class="swatch available-swatch"></span> Available</div>
+        <div class="legend-item"><span class="swatch vip-swatch"></span> VIP</div>
+        <div class="legend-item"><span class="swatch booked-swatch"></span> Booked</div>
+    </div>
+
+    <div class="entrance-bar">ENTRANCE / COUNTER</div>
+
+    <div class="station-map" id="stationMap">
+
+        <div class="zone">
+            <h3 class="zone-title">Console Stations <span class="zone-price">₱40/hr</span></h3>
+            <div class="zone-grid" id="zone-console"></div>
+        </div>
+
+        <div class="zone">
+            <h3 class="zone-title">VIP PCs <span class="zone-price">₱75/hr</span></h3>
+            <div class="zone-grid" id="zone-vip"></div>
+        </div>
+
+        <div class="zone">
+            <h3 class="zone-title">Standard PCs <span class="zone-price">₱50/hr</span></h3>
+            <div class="zone-grid" id="zone-standard"></div>
+        </div>
+
+    </div>
+
+    <div class="summary-panel">
+        <div class="summary-left">
+            <h3><i class="fa-solid fa-list-check"></i> Your Selection</h3>
+            <div id="selectionList" class="selection-list">
+                <p class="empty-msg">No stations selected yet.</p>
+            </div>
+        </div>
+        <div class="summary-right">
+            <p class="summary-line">Stations: <span id="stationCount">0</span></p>
+            <p class="summary-line">Hours: <span id="hoursDisplay">1</span></p>
+            <p class="summary-total">Total: <span id="totalPrice">₱0</span></p>
+            <button class="btn btn-cyan" id="confirmBtn" disabled>Confirm Booking</button>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-box">
+            <h3>🎮 Pixel Arena</h3>
+            <p>Your local gaming hub for casual play and tournaments.</p>
+        </div>
+        <div class="footer-box">
+            <h4>Location & Hours</h4>
+            <p><i class="fa-solid fa-map-marker-alt"></i> Sampaloc, Manila, Philippines</p>
+            <p><i class="fa-solid fa-clock"></i> Open 24/7</p>
+        </div>
+        <div class="footer-box">
+            <h4>Contact & Socials</h4>
+            <p><i class="fa-solid fa-phone"></i> 0912-345-6789</p>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Pixel Arena Gaming Café </p>
+    </div>
+</footer>
+
+<script src="Servicesjs.js"></script>
+
+</body>
+</html>

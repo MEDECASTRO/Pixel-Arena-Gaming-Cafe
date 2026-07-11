@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Pixel Arena</title>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styleindex.css">
+    <link rel="stylesheet" href="stylesignup.css">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar container">
+        <h2 class="logo">🎮 Pixel<span>Arena</span></h2>
+        <ul class="nav-links">
+         
+        </ul>
+    </nav>
+</header>
+
+<div class="container auth-wrapper">
+    <div class="auth-card">
+        <h2>Sign Up</h2>
+        <p class="auth-subtitle">Create an account to start playing</p>
+        
+        <form id="registerForm">
+    
+            <div class="form-group">
+                <label for="regUsername">Username</label>
+                <input type="text" id="regUsername" class="form-input" placeholder="Choose a display name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="regType">Register Using</label>
+                <select id="regType" class="form-input select-input" required>
+                    <option value="email">Email Address</option>
+                    <option value="phone">Phone Number</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label id="contactLabel" for="regContact">Email Address</label>
+                <input type="email" id="regContact" class="form-input" placeholder="e.g. student@arena.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="regPassword">Password</label>
+                <input type="password" id="regPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-group">
+                <label for="regConfirmPassword">Confirm Password</label>
+                <input type="password" id="regConfirmPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn btn-purple btn-block">Create Account</button>
+        </form>
+
+        <p class="auth-switch">Already registered? <a href="signin.html">Log In instead</a></p>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <p>© 2026 Pixel Arena Gaming Café </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const regTypeSelect = document.getElementById('regType');
+const contactInput = document.getElementById('regContact');
+const contactLabel = document.getElementById('contactLabel');
+
+
+regTypeSelect.addEventListener('change', function() {
+    if (this.value === 'phone') {
+        contactLabel.textContent = "Phone Number (Strictly Numbers Only)";
+        contactInput.type = "text"; 
+        contactInput.placeholder = "e.g. 09123456789";
+        contactInput.inputMode = "numeric"; 
+    } else {
+        contactLabel.textContent = "Email Address";
+        contactInput.type = "email";
+        contactInput.placeholder = "e.g. student@arena.com";
+        contactInput.removeAttribute('inputmode');
+    }
+});
+
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('regUsername').value.trim();
+    const regType = regTypeSelect.value;
+    const contactVal = contactInput.value.trim();
+    const passVal = document.getElementById('regPassword').value;
+    const confirmPassVal = document.getElementById('regConfirmPassword').value;
+
+    
+    if (regType === 'phone') {
+        const numbersOnlyPattern = /^[0-9]+$/;
+        if (!numbersOnlyPattern.test(contactVal)) {
+            alert("Registration Failed! Phone numbers must contain digits only.");
+            return;
+        }
+        if (contactVal.length < 11) {
+            alert("Phone numbers must be at least 11 digits long.");
+            return;
+        }
+    }
+
+    if (passVal !== confirmPassVal) {
+        alert("Passwords do not match! Please verify your inputs.");
+        return;
+    }
+
+    const newAccountData = {
+        username: username,
+        regType: regType,
+        contactValue: contactVal,
+        password: passVal
+    };
+    
+    localStorage.setItem('userAccount', JSON.stringify(newAccountData));
+    alert("Sign up complete! Welcome, " + username + ". Redirecting to login.");
+    window.location.href = 'signin.html';
+});
+</script>
+
+</body>
+</html>
