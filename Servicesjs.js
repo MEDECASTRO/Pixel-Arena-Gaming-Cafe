@@ -135,7 +135,7 @@ if (confirmButton) {
         localStorage.setItem('activeReservation', JSON.stringify(bookingDetails));
         alert(`Booking confirmed!\n\nDate: ${date}\nHours: ${hours}\nStations: ${stations}\nTotal Price: ${total}\n\nRedirecting you to the home page...`);
         
-        window.location.href = 'index (main).html';
+        window.location.href = 'index.html';
     });
 }
 
